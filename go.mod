@@ -1,1 +1,1 @@
-module github.com/OrenRosen/gopoc
+module github.com/OrenRosen/gopoc/v2
