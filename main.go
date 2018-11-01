@@ -1,7 +1,7 @@
-package main
+package gopoc
 
 import "fmt"
 
-func main() {
-  fmt.Println("Hello World")
+func Lala() {
+  fmt.Println("Hello World from gopoc")
 }
