@@ -1,12 +1,12 @@
 package main
 
-import (
+import  (
 	"fmt"
 	"log"
 	"net/http"
+
+	_ "net/http/pprof"
 )
-
-
 
 func main() {
 	http.Handle("/find", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -22,7 +22,7 @@ func main() {
 		_, _ = fmt.Fprintf(w, "Found %d documents with topic %s", n, topic)
 	}))
 
-	log.Println("listening on :6060")
+	log.Println("listening on http://127.0.0.1:6060")
 	_ = http.ListenAndServe(":6060", nil)
 }
 
