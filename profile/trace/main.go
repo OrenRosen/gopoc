@@ -5,20 +5,10 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"runtime/trace"
 	"strings"
 )
 
-
-
 func main() {
-
-	//pprof.StartCPUProfile(os.Stdout)
-	//defer pprof.StopCPUProfile()
-
-	trace.Start(os.Stdout)
-	defer trace.Stop()
-
 	docs := make([]string, 1000)
 	for i := range docs {
 		docs[i] = "newsfeed.xml"
@@ -26,7 +16,7 @@ func main() {
 
 	topic := "some_topic"
 
-	n := findNumCPU(topic, docs)
+	n := find(topic, docs)
 	log.Printf("Found %d documents with topic %s", n, topic)
 }
 
