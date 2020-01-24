@@ -12,13 +12,18 @@ import (
 var s, s1, s2, s3 []byte
 
 func main() {
+	http.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_, _ = fmt.Fprintf(w, "Hello")
+	}))
+
 	http.Handle("/work", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		log.Println("working")
 		leakyFunction()
-		fmt.Fprintf(w, "DONE")
+		_, _ = fmt.Fprintf(w, "DONE")
 	}))
 
-	http.ListenAndServe(":6060", nil)
+	log.Println("listening on http://127.0.0.1:6060")
+	_ = http.ListenAndServe(":6060", nil)
 }
 
 func leakyFunction() {
