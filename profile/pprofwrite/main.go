@@ -1,5 +1,9 @@
 package main
 
+import (
+	"time"
+)
+
 var s, s1, s2 []byte
 
 func main() {
@@ -13,6 +17,7 @@ func leakyFunction() {
 
 	allocS1()
 	allocS2()
+	allocS3()
 }
 
 func allocS1() {
@@ -27,3 +32,10 @@ func allocS2() {
 		s2 = append(s2, 's')
 	}
 }
+
+func allocS3() {
+	for i:= 0; i < 2 * 1024 * 1024; i++{
+		if i == 3000 { time.Sleep(500 * time.Millisecond) }
+	}
+}
+
