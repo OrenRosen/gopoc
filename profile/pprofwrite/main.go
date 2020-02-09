@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+	"runtime/pprof"
 	"time"
 )
 
@@ -8,6 +10,8 @@ var s, s1, s2 []byte
 
 func main() {
 	leakyFunction()
+
+	pprof.WriteHeapProfile(os.Stdout)
 }
 
 func leakyFunction() {
